@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body ng-app="GithubVeille">
+        <div class="container" ng-controller="MainCtrl">
+            <div class="items" ng-repeat="item in lists.items">
+                <div>
+                    <h2>{{item.full_name}}</h2>
+                    <p class="right">
+                        <i class="fa fa-code-fork" aria-hidden="true"></i><span> {{item.forks}}</span>
+                    </p>
+                    <p class="right">
+                        <i class="fa fa-star" aria-hidden="true"></i><span> {{item.stargazers_count}}</span>
+                    </p>
+                    <div>
+
+                    </div>
+                </div>
+                <p class="language">
+                    {{item.language}}
+                </p>
+
+                <p>
+                   {{item.description}}
+                </p>
+                <a target="_blank" href="https://github.com/{{item.full_name}}">View on GitHub</a>
+
+            </div>
+            <div>
+                <p class="text-center" ng-click="addList()">
+                    Charger plus
+                </p>
+            </div>
+        </div>
+
+        <script src="js/angular.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/factories/listsFactory.js"></script>
+        <script src="app/controllers/MainCtrl.js"></script>
+    </body>
+</html>
